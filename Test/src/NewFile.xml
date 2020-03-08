@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="triangle" class="com.himanshu.model.Triangle">
+		<property name="point1" ref="point1" />
+		<property name="point2" ref="point2" />
+
+	</bean>
+
+	<bean id="point1" class="com.himanshu.model.Point">
+		<constructor-arg value="12"></constructor-arg>
+		<constructor-arg value="-1"></constructor-arg>
+
+	</bean>
+
+	<bean id="point2" class="com.himanshu.model.Point" scope="prototype">
+		<constructor-arg value="${pointX}"></constructor-arg>
+		<constructor-arg value="${pointY}"></constructor-arg>
+
+	</bean>
+	<!-- <bean class="com.himanshu.DispalyNameProcessor"/> -->
+	<bean class="com.himanshu.BeanFactoryProcessor" />
+	<bean	class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+				
+		           
+
+		<property name="locations" value="myconfig.properties" />
+	</bean>
+
+</beans>
